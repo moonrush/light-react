@@ -93,7 +93,7 @@ const SMap = function (opt) {
      */
     _._smapMousedown = (e) => {
         let ts = e.nativeEvent.touches
-        if (ts.length >= 2) {
+        if (ts && ts.length >= 2) {
             [_.oldDis, _.oldCent] = _._calFinger(ts[0], ts[1])
             return true
         }
@@ -108,8 +108,8 @@ const SMap = function (opt) {
     _._smapPressmove = (e) => {
         // multi-operate
         let ts = e.nativeEvent.touches
-        if (ts.length >= 2) {
-            let [newDis, newCent] = _._calFinger(ts[0], ts[1])
+        if (ts && ts.length >= 2) {
+            let [newDis,] = _._calFinger(ts[0], ts[1])
             _._setScale(newDis / _.oldDis)
             return true
         }

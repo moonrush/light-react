@@ -1,0 +1,78 @@
+.Share {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.Share-background {
+    background: #b9fa51;
+    width: 100%;
+    height: 100%;
+}
+
+.Share-title {
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    width: 100%;
+    font-size: 2rem;
+}
+
+.Share-go {
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    width: 100%;
+}
+
+.Share-go-btn {
+    border: 1px solid white;
+    background: #f45516;
+    display: inline-block;
+    width: 50%;
+    height: 3rem;
+    line-height: 3rem;
+    color: #fff;
+}
+
+.Share-link {
+    position: absolute;
+    text-align: center;
+    top: 70%;
+    width: 90%;
+    left: 5%;
+    display: flex;
+    justify-Share: center;
+}
+
+.Share-link-btn {
+    flex: 1 1 auto;
+    background: #c3d08b;
+    line-height: 3rem;
+    height: 3rem;
+    margin: 5px;
+}
+
+.Share-right {
+    position: absolute;
+    text-align: center;
+    bottom: 5%;
+    width: 100%;
+}
+
+.screen {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    box-shadow: 0px 5px 10px #ccc;
+    display: none;
+    z-index: 20;
+}
+
+.screen.show {
+    display: block
+}
