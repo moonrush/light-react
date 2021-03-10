@@ -28,7 +28,8 @@ const SMap = function (opt) {
     ctr.y = (_.canvas.height - _.height) / 2 * ctr.scale
 
     // 初始化辅助值
-    _.oldDis = _.oldCent = 0
+    _.oldDis = 0
+    _.oldCent = { x: _.width / 9, y: _.height / 4 }
     _.oldX = _.oldY = 0
 
 
@@ -120,6 +121,11 @@ const SMap = function (opt) {
         // set x,y
         ctr.x = Math.max(Math.min(ctr.x + moveX, 0), _.canvas.width - ctr.width)
         ctr.y = Math.max(Math.min(ctr.y + moveY, 0), _.canvas.height - ctr.height)
+    }
+
+
+    ctr._setScale = (s) => {
+        _._setScale(s, 1)
     }
 
     ctr.addEventListener('mousedown', _._smapMousedown)

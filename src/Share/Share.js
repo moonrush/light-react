@@ -18,9 +18,12 @@ function Share(props) {
     const userInfo = () => {
         let name = 'Finn的草剑'
         let src = 'img/share-avatar.png'
-
+        let ui = JSON.parse(localStorage.getItem('wxuserinfo'))
+        if (ui) {
+            name = ui.nickname
+            src = ui.headimgurl
+        }
         // TODO 实际获取用户的数据
-
         return [name, src]
     }
 
@@ -40,8 +43,9 @@ function Share(props) {
                 img.style.height = '100%'
 
                 let screen = document.querySelector('.screen')
+
                 screen.innerHTML = ''
-                screen.append(img)
+                screen.appendChild(img)
                 screen.style.display = 'block'
             })
         document.querySelector('.Share').addEventListener('click', closePic)

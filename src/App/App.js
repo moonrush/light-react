@@ -1,7 +1,7 @@
 import './App.css'
 import createjs from 'createjs-cmd'
 import { useEffect, useState } from 'react'
-import { GetSizeFunc, isNeedRotate } from '../lib/util'
+import { GetSizeFunc, isNeedRotate, tap } from '../lib/util'
 import ReactDom from 'react-dom'
 import map from '../datas/map'
 import area from '../datas/area'
@@ -54,6 +54,8 @@ function App(props) {
         area.forEach(item => {
 
             let [x, y] = item.bias.split(',')
+            x = parseInt(x) + map.bias.x
+            y = parseInt(y) + map.bias.y
 
             let ire = new Irreg({
                 p: item.path,
@@ -61,12 +63,19 @@ function App(props) {
                 f: red(0.5),
                 s: '#fff',
             })
-            ire.addEventListener('click', () => {
+
+            tap(ire, () => {
                 openNotification(item.name, item.msg)
             })
+
+            // ire.addEventListener('touchstart', () => {
+            //     openNotification(item.name, item.msg)
+            // })
             ctr.addChild(ire)
         })
 
+
+        ctr._setScale(map.initScale)
         window.ctr = ctr
         stage.addChild(ctr)
     }
@@ -111,6 +120,9 @@ function App(props) {
 
     return (
         <div className="App">
+            <div className="App-title">
+                <img src="img/play-title.png"></img>
+            </div>
             <canvas className="stage" width={isNeedRotate() ? size.height : size.width} height={isNeedRotate() ? size.width : size.height}
                 style={isNeedRotate() ? { transform: `matrix(0,-1,1,0,0,${-Math.abs((size.height - size.width) / 2)})` } : {}}></canvas>
         </div>

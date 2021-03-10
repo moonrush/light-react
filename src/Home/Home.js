@@ -1,10 +1,22 @@
 import './Home.css'
 import { withRouter } from "react-router-dom"
+import { useEffect } from 'react'
+import { wxAuthorize } from '../lib/util'
+
 
 function Home(props) {
     const go = () => {
         props.history.push('/play')
     }
+
+    useEffect(() => {
+        // 进行用户授权
+        let wxuserinfo = JSON.parse(localStorage.getItem('wxuserinfo')) || {}
+        if (!wxuserinfo.nickname) {
+            wxAuthorize()
+        }
+    }, [])
+
     return (
         <div className="Home">
             <div className="Home-background">
