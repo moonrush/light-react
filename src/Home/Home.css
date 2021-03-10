@@ -7,7 +7,6 @@
 }
 
 .Home-background {
-    background: #f14090;
     width: 100%;
     height: 100%;
 }
@@ -23,24 +22,24 @@
 .Home-go {
     position: absolute;
     text-align: center;
-    top: 60%;
+    top: 70.42%;
     width: 100%;
 }
 
 .Home-go-btn {
-    border: 1px solid white;
-    background: #f45516;
+    /* border: 1px solid white;
+    background: #f45516;*/
     display: inline-block;
     width: 50%;
-    height: 3rem;
+    /*height: 3rem;
     line-height: 3rem;
-    color: #fff;
+    color: #fff; */
 }
 
 .Home-link {
     position: absolute;
     text-align: center;
-    top: 70%;
+    top: 78%;
     width: 90%;
     left: 5%;
     display: flex;
@@ -49,10 +48,13 @@
 
 .Home-link-btn {
     flex: 1 1 auto;
-    background: #c3d08b;
-    line-height: 3rem;
-    height: 3rem;
-    margin: 5px;
+    background: #f0b95c;
+    line-height: 2.5rem;
+    height: 2.5rem;
+    margin: 5px 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #cb5937;
 }
 
 .Home-right {
@@ -60,4 +62,19 @@
     text-align: center;
     bottom: 5%;
     width: 100%;
+}
+
+@media screen and (min-width:600px) {
+    body {
+        width: 600px;
+        margin: 0 auto;
+    }
+    .Home {
+        width: 600px;
+        left: auto;
+    }
+    .Home-background {
+        width: 600px;
+        left: auto;
+    }
 }

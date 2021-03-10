@@ -1,6 +1,6 @@
 const map = {
-    width: 1890,
-    height: 1890,
+    width: 1000,
+    height: 800,
     bgColor: '#eee',
     minScale: 0.5,
     maxScale: 2

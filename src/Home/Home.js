@@ -8,13 +8,14 @@ function Home(props) {
     return (
         <div className="Home">
             <div className="Home-background">
+                <img src="img/index-bg.jpg" width="100%" height="100%" />
             </div>
             <div className="Home-title">
-                百年党史、点亮家乡
+                {/* 百年党史、点亮家乡 */}
             </div>
             <div className="Home-go">
                 <div className="Home-go-btn" onClick={go}>
-                    马上去点亮
+                    <img src="img/index-btn.png" width="100%" />
                 </div>
             </div>
             <div className="Home-link">
@@ -24,14 +25,11 @@ function Home(props) {
                 <div className="Home-link-btn">
                     挑战答题
                 </div>
-                <div className="Home-link-btn">
-                    红色足迹
-                </div>
             </div>
-            <div className="Home-right">
+            {/* <div className="Home-right">
                 <p>新华社</p>
                 <p>中国地图出版集团</p>
-            </div>
+            </div> */}
         </div>
     )
 }

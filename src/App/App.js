@@ -8,8 +8,6 @@ import area from '../datas/area'
 import { SMap, Irreg } from '../lib/easy-create'
 import { notification, Button } from 'antd'
 
-
-
 function App(props) {
     let size = GetSizeFunc()
 
@@ -17,13 +15,18 @@ function App(props) {
     const [stage, setStage] = useState()
     const [loader, setLoader] = useState()
 
-    const skip = (key) => {
-        props.history.push(`/share?id=${key}`)
+    const red = (x) => {
+        return `rgba(255,0,0,${Math.random()})`
     }
 
-    const openNotification = (key, name, msg) => {
+    const skip = (name) => {
+        props.history.push(`/share?id=${name}`)
+        notification.close(name)
+    }
+
+    const openNotification = (name, msg) => {
         const btn = (
-            <Button type="primary" size="small" onClick={() => skip(key)}>
+            <Button type="primary" size="small" onClick={() => skip(name)}>
                 点亮它
             </Button>
         )
@@ -31,7 +34,7 @@ function App(props) {
             message: name,
             description: msg,
             btn,
-            key,
+            key: name,
             placement: 'bottomRight'
         })
     }
@@ -45,13 +48,21 @@ function App(props) {
      */
     const loaded = () => {
         let ctr = new SMap(map)
-        let bg = new createjs.Bitmap(loader.getResult('bg'))
-        ctr.addChild(bg)
+        //let bg = new createjs.Bitmap(loader.getResult('bg'))
+        //ctr.addChild(bg)
 
         area.forEach(item => {
-            let ire = new Irreg({ p: item.p, x: item.x, y: item.y })
+
+            let [x, y] = item.bias.split(',')
+
+            let ire = new Irreg({
+                p: item.path,
+                x: x, y: y,
+                f: red(0.5),
+                s: '#fff',
+            })
             ire.addEventListener('click', () => {
-                openNotification(item.id, item.name, item.msg)
+                openNotification(item.name, item.msg)
             })
             ctr.addChild(ire)
         })
@@ -72,7 +83,7 @@ function App(props) {
     useEffect(() => {
         if (canvas) {
             setStage(new createjs.Stage(canvas))
-        }        
+        }
     }, [canvas])
 
     useEffect(() => {

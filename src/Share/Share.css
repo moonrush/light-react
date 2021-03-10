@@ -7,7 +7,7 @@
 }
 
 .Share-background {
-    background: #b9fa51;
+    /* background: #b9fa51; */
     width: 100%;
     height: 100%;
 }
@@ -15,9 +15,40 @@
 .Share-title {
     position: absolute;
     text-align: center;
-    top: 30%;
+    top: 16%;
     width: 100%;
-    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.Share-title .avatar {
+    width: 6em;
+}
+
+.Share-title .avatar img {
+    border: 2px solid #ed9f93;
+    border-radius: 50%;
+}
+
+.Share-title .avatar p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.Share-title .msg {
+    color: #d93624;
+    font-size: 1em;
+    text-align: left;
+    line-height: 2.2em;
+}
+
+.Share-title .msg .point {
+    font-size: 1.5em;
+}
+
+.Share-title .msg p {
+    font-weight: bold;
+    margin: 0;
 }
 
 .Share-go {
@@ -40,7 +71,7 @@
 .Share-link {
     position: absolute;
     text-align: center;
-    top: 70%;
+    top: 82%;
     width: 90%;
     left: 5%;
     display: flex;
@@ -49,10 +80,13 @@
 
 .Share-link-btn {
     flex: 1 1 auto;
-    background: #c3d08b;
-    line-height: 3rem;
-    height: 3rem;
+    background: #f0b95c;
+    line-height: 2.5rem;
+    height: 2.5rem;
+    font-weight: bold;
     margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px #cb5937;
 }
 
 .Share-right {
@@ -75,4 +109,28 @@
 
 .screen.show {
     display: block
+}
+
+a {
+    color: #333;
+}
+
+.Share-part {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (min-width:600px) {
+    body {
+        width: 600px;
+        margin: 0 auto;
+    }
+    .Share {
+        width: 600px;
+        left: auto;
+    }
+    .Share-background {
+        width: 600px;
+        left: auto;
+    }
 }
